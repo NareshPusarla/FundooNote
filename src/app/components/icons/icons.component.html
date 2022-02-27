@@ -1,0 +1,54 @@
+<div class="border">
+
+    <div class="icons">
+        <button mat-icon-button>
+            <mat-icon>notifications</mat-icon>
+        </button>
+    </div>
+    <div class="icons">
+        <button mat-icon-button>
+            <mat-icon>person_add</mat-icon>
+        </button>
+    </div>
+    <div class="icons">
+        <button mat-icon-button [matMenuTriggerFor]="changeColor">
+            <mat-icon>color_lens</mat-icon>
+        </button>
+        <mat-menu #changeColor="matMenu" class="color-box">
+            <!-- <div class="themes">
+                <button id="red"></button>
+                <button id="green"></button>
+                <button id="black"></button>
+                <button id="orange"></button>
+                <button id="pink"></button>
+                <button id="yellow"></button>
+                <button id="chocolate"></button>
+                <button id="silver"></button>
+            </div> -->
+            <div *ngFor="let noteColor of colors" class="themes">
+                <button [style.background]="noteColor?.code" class="color" (click)="color(noteColor)"></button>
+            </div>
+        </mat-menu>
+    </div>
+    <div class="icons">
+        <button mat-icon-button>
+            <mat-icon>image</mat-icon>
+        </button>
+    </div>
+    <div class="icons">
+        <button mat-icon-button (click)="archiveNote()">
+            <mat-icon>archive</mat-icon>
+        </button>
+    </div>
+    <div class="icons">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item class="matMenu" (click)="trash()">
+                <span>Delete note</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>

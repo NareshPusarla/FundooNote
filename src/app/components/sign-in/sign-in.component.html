@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="fundoo">
+            <p id="f" style="color: blue;">F</p>
+            <p id="u" style="color: burlywood;">u</p>
+            <p id="n" style="color: darkorange;">n</p>
+            <p id="d" style="color: blue;">d</p>
+            <p id="o" style="color: skyblue;">o</p>
+            <p id="o" style="color: coral;">o</p>
+        </div>
+        <div class="header">
+            <p style="font-size: 22px;" id="sign">Sign in</p><br>
+            <p style="font-size: 18px;" id="use">Use your Fundoo Account</p>
+        </div>
+        <div class="details">
+            <mat-form-field appearance="outline" class="box">
+                <mat-label>Email or Phone</mat-label>
+                <input matInput placeholder="Email or phone" formControlName="email">
+                <mat-error>Enter first name</mat-error>
+            </mat-form-field>
+        </div>
+        <a href="../forgot-email/forgot-email.component.html" routerLink="/forget">Forgot email?</a>
+
+        <div class="details">
+            <mat-form-field appearance="outline" class="box1">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" formControlName="password">
+                <mat-error>Enter first name</mat-error>
+            </mat-form-field>
+        </div>
+        <!-- <a href="../reset-password/reset-password.component.html" routerLink="/reset">Forgot or Reset Password?</a> -->
+
+        <div class="more">
+            <p style="font-size: 14px;">Not your computer? Use guest mode to sign in privately</p>
+        </div>
+        <a href="">Learn more</a>
+        
+        <div class="footer">
+            <div class="c1"><a href="">Create Account</a></div>
+            <div class="c2">
+                <button>Next</button>
+            </div>
+        </div>
+    
+        <div class="outer">
+            <div class="outer1">Help</div>
+            <div class="outer2">privacy</div>
+            <div class="outer3">Terms</div>
+        </div>
+    </form>
+</div>

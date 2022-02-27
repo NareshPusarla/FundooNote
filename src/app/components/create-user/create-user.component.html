@@ -1,0 +1,84 @@
+<div class="main">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="fundoo">
+      <p id="f" style="color: blue;">F</p>
+      <p id="u" style="color: burlywood;">u</p>
+      <p id="n" style="color: darkorange;">n</p>
+      <p id="d" style="color: blue;">d</p>
+      <p id="o" style="color: skyblue;">o</p>
+      <p id="o" style="color: coral;">o</p>
+    </div>
+
+    <h3>Create your Fundoo Account</h3>
+
+    <div class="name"> 
+      <mat-form-field appearance="outline" class="fname">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" formControlName="firstName">
+        <mat-error>Enter first name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" formControlName="lastName">
+        <mat-error>Enter last name</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="user-name">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="userName" >
+        <mat-error>Enter email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <a href="" class="line1">You can use letters, numbers & periods</a>
+    <a href="" class="line2">Use my current email address instead</a>
+    
+    <div class="pass">
+
+      <mat-form-field appearance="outline" class="password">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password" id="pass1">
+        <mat-error>Enter password</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm</mat-label>
+        <input matInput type="password" placeholder="Confirm" formControlName="confirm" id="pass2">
+        <mat-error>Confirm the password</mat-error>
+      </mat-form-field>
+    </div>
+    <a href="" class="line3">Use 8 more characters with a mix of letters, numbers & symbols.</a>
+
+    <div class="">
+      <input type="checkbox" onclick="showPassword()" id="icon"> Show Password
+    </div>
+
+    <a href="../sign-in/sign-in.component.html" class="line4" routerLink="/login">Sign in instead</a>
+    <input type="submit" name="" value="Next" id="button">
+     
+  </form>
+  <div class="side-image">
+    <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" class="side-logo">
+    <p id="p1">One account. All of Fundoo</p>
+    <p id="p2">working for you.</p>
+  </div>
+</div>
+<script type="text/javascript">
+  function showPassword(){
+    var show= document.getElementById('pass1');
+    var confirm= document.getElementById('pass2');
+
+    if (show.type == 'password', confirm.type == 'password') {
+      show.type='text';
+      confirm.type='text';
+
+    }else {
+      show.type='password';
+      confirm.type='password';
+    }
+
+  }
+</script>

@@ -1,0 +1,113 @@
+.border {
+    border: 5px solid transparent;
+    height: 20px;
+    width: 50%;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.icons{
+  display: initial;
+}
+
+button{
+    margin-right: 23px;
+    width: 0px;
+    border:none;
+    background-color: transparent;
+}
+
+.color{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.themes{
+  margin-left: 5px;
+  display:inline-block ;
+}
+.themes button{
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* #red{
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#orange{
+  background-color: orange;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#black{
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#green{
+  background-color: green;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#pink{
+  background-color: pink;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#silver{
+  background-color: silver;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#chocolate{
+  background-color: chocolate;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#yellow{
+  background-color: yellow;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+} */
+
+mat-icon{
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+mat-icon:hover{
+  opacity: 0.9;
+}
+
+.matMenu{
+    border: 1px solid transparent;
+    height: 20px;
+    width: 100px;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+}

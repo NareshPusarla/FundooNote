@@ -1,0 +1,109 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 0;
+    margin-left: -10px;
+}
+  
+.example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+  
+.example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+}
+  
+.example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+}
+
+#menu{
+    background-color: #f5f5f5;
+    border: none;
+}
+
+.menu{
+    font-size:30px;
+}
+
+.shade{
+    padding-right: 30px;
+    border-radius: 5px 30px 30px 5px;
+}
+
+.shade:hover{
+    background-color: orange;
+}
+
+.bulb{
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.fundoo{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.search{
+    width: 650px;
+    height: 70px;
+    margin-left: 150px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top: 18px;
+    padding-bottom: 2px;
+    font-size: 13px;
+}
+
+.serach input{
+    width: 50px;
+}
+
+.search_icon{
+    float: left;
+    margin-top: -3px;
+    opacity: 0.7;
+}
+.refresh{
+    padding-left: 200px;
+}
+.view_stream{
+    padding-left: 18px;
+    
+}
+.settings{
+    padding-left: 18px;
+}
+.apps{
+    padding-left: 80px;
+}
+
+.person{
+    background-color: #f5f5f5;
+    border: white;
+    margin-left: 70px;
+}
+
+mat-nav-list div{
+    display: flex;
+}
+
+mat-nav-list mat-icon{
+    padding-top: 15px;
+}
+
+mat-nav-list p{
+    padding-left: 40px;
+    padding-top: 18px;
+    padding-right: 10px;
+}
