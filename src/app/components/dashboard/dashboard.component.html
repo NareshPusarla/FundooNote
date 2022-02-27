@@ -1,0 +1,55 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()" id="menu">
+            <mat-icon class="menu">menu</mat-icon>
+        </button>
+        <div class="bulb">
+            <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt=""
+                style="width: 40px;">
+        </div>
+        <p class="fundoo">Fundoo</p>
+        <mat-form-field appearance="outline" class="search">
+            <input matInput placeholder="Search" style="font-size: 16px; margin-left: -520px; ">
+            <mat-icon class="search_icon">search</mat-icon>
+        </mat-form-field>
+        <mat-icon class="refresh">refresh</mat-icon>
+        <mat-icon class="view_stream">view_stream</mat-icon>
+        <mat-icon class="settings">settings</mat-icon>
+        <mat-icon class="apps">apps</mat-icon>
+        <button (click)="logout()" class="person">
+            <mat-icon>person</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+                <div routerLink="/dashboard/notes" class="shade">
+                    <mat-icon id="lightbulb">lightbulb</mat-icon>
+                    <p>Notes</p>
+                </div>
+                <div class="shade">
+                    <mat-icon id="notifications">notifications</mat-icon>
+                    <p>Reminders</p>
+                </div>
+                <div class="shade">
+                    <mat-icon id="edit">edit</mat-icon>
+                    <p>Edit lables</p>
+                </div>
+                <div class="shade" routerLink="/dashboard/archiveNotes">
+                    <mat-icon id="archive">archive</mat-icon>
+                    <p>Archive</p>
+                </div>
+                <div class="shade" routerLink="/dashboard/trashNotes">
+                    <mat-icon id="delete">delete</mat-icon>
+                    <p>Trash</p>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

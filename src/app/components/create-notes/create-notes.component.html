@@ -1,0 +1,26 @@
+<div class="notes">
+    <div *ngIf="!show"  (click)="showHide()">
+        <label>
+            <input type="text" placeholder="Take a note..." class="titleBar" style="font-size: 16px;">
+            <div class="inner">
+                <mat-icon class="checkbox" id="inner">check_box</mat-icon>
+                <mat-icon class="edit" id="inner">edit</mat-icon>
+                <mat-icon class="material-icons" id="inner">collections</mat-icon>
+            </div>
+        </label>   
+    </div>
+    <div *ngIf="show" id="descBar">
+        <div>
+            <input matInput type="text" placeholder="Title" class="descBar" [(ngModel)]="title">
+            <mat-icon style="margin-right: 20px;">push_pin</mat-icon>
+        </div>
+        <div>
+            <input matInput type="text" placeholder="Take a note...." class="descBar" [(ngModel)]="desc">
+        </div>
+        <div class="icon">
+            <app-icons></app-icons>
+            <button mat-button (click)="addNotes(); openSnackBar('notes created','dismiss')">Close</button>
+        </div>
+    </div>
+    
+</div>
