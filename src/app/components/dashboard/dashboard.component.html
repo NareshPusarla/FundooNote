@@ -9,15 +9,15 @@
         </div>
         <p class="fundoo">Fundoo</p>
         <mat-form-field appearance="outline" class="search">
-            <input matInput placeholder="Search" style="font-size: 16px; margin-left: -520px; ">
-            <mat-icon class="search_icon">search</mat-icon>
+            <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px; ">
+            <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
         </mat-form-field>
-        <mat-icon class="refresh">refresh</mat-icon>
-        <mat-icon class="view_stream">view_stream</mat-icon>
-        <mat-icon class="settings">settings</mat-icon>
-        <mat-icon class="apps">apps</mat-icon>
-        <button (click)="logout()" class="person">
-            <mat-icon>person</mat-icon>
+        <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh">
+        <img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream">
+        <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
+        <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
+        <button (click)="logout(); openSnackBar('successfully logged out','dismiss')" class="person">
+            <img src="../../../assets/person_black_24dp.svg" alt="" class="apps">
         </button>
     </mat-toolbar>
 
@@ -26,23 +26,23 @@
             fixedTopGap="56">
             <mat-nav-list>
                 <div routerLink="/dashboard/notes" class="shade">
-                    <mat-icon id="lightbulb">lightbulb</mat-icon>
+                    <img src="../../../assets/lightbulb_black_24dp.svg" alt="">
                     <p>Notes</p>
                 </div>
                 <div class="shade">
-                    <mat-icon id="notifications">notifications</mat-icon>
+                    <img src="../../../assets/notifications_black_24dp.svg" alt="">
                     <p>Reminders</p>
                 </div>
                 <div class="shade">
-                    <mat-icon id="edit">edit</mat-icon>
+                    <img src="../../../assets/edit_black_24dp.svg" alt="">
                     <p>Edit lables</p>
                 </div>
                 <div class="shade" routerLink="/dashboard/archiveNotes">
-                    <mat-icon id="archive">archive</mat-icon>
+                    <img src="../../../assets/archive_black_24dp.svg" alt="">
                     <p>Archive</p>
                 </div>
                 <div class="shade" routerLink="/dashboard/trashNotes">
-                    <mat-icon id="delete">delete</mat-icon>
+                    <img src="../../../assets/delete_black_24dp.svg" alt="">
                     <p>Trash</p>
                 </div>
             </mat-nav-list>

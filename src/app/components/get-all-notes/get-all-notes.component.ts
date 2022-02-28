@@ -30,4 +30,5 @@ export class GetAllNotesComponent implements OnInit {
   receiveMessage(e:any){
     this.getNotes();
   }
+  
 }

@@ -1,2 +1,2 @@
 <app-create-notes (messageEvent)="receiveMessage($event)"></app-create-notes>
-<app-display-notes [dataList]="notes" class="display"></app-display-notes>
+<app-display-notes [dataList]="notes" class="display" (displayColorEvent)="receiveMessage($event)"></app-display-notes>
