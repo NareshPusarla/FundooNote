@@ -1,6 +1,7 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { NotesserviceService } from 'src/app/service/notesservice/notesservice.service';
 import { DisplayNotesComponent } from '../display-notes/display-notes.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-icons',
@@ -10,23 +11,27 @@ import { DisplayNotesComponent } from '../display-notes/display-notes.component'
 export class IconsComponent implements OnInit {
 
   @Input() card:any;
+  @Output() colorEvent = new EventEmitter<string>();
+  message = "color applied";
   id:any;
-  colors=[
-    {name: 'red', code:'rgb(233, 70, 70)'},
-    {name: 'green', code:'rgb(135, 233, 70)'},
-    {name: 'orange', code:'rgb(255, 165, 0)'},
-    {name: 'silver', code:'rgb(122, 120, 116)'},
-    {name: 'pink', code:'rgb(255, 182, 193)'},
-    {name: 'teal', code:'rgb(0, 128, 128)'},
-    {name: 'blue', code:'rgb(73, 113, 245)'},
-    {name: 'lightblue', code:'rgb(73, 211, 245)'},
-    {name: 'purple', code:'rgb(128, 0, 128)'},
-    {name: 'gray', code:'rgb(128, 128, 128)'},
-    {name: 'brown', code:'rgb(148, 39, 39)'},
-    {name: 'chocolate', code:'rgb(210, 105, 30)'}
+  show:boolean = true;
+  
+  colors: Array<any> = [
+    { code: '#FF6347', name: 'red' },
+    { code: '#FF4500', name: 'orange' },
+    { code: '#FFFF00', name: 'yellow' },
+    { code: '#ADFF2F', name: 'green' },
+    { code: '#43C6DB', name: 'teal' },
+    { code: '#ffffff', name: 'white' },
+    { code: '#728FCE', name: 'Blue' },
+    { code: '#2B65EC', name: 'darkblue' },
+    { code: '#D16587', name: 'purple' },
+    { code: '#F9A7B0', name: 'pink' },
+    { code: '#E2A76F', name: 'brown' },
+    { code: '#D3D3D3', name: 'grey'}
   ]
 
-  constructor(private notesService:NotesserviceService) { }
+  constructor(private notesService:NotesserviceService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +39,7 @@ export class IconsComponent implements OnInit {
   archiveNote(){
     console.log(this.card.id);
     let archiveData = { 
-      noteIdList: this.card.id,
+      noteIdList: [this.card.id],
       isArchived:true
     }
     this.notesService.archivehNotes(archiveData).subscribe((response: any) => {
@@ -45,7 +50,7 @@ export class IconsComponent implements OnInit {
   trash(){
     console.log("card id", this.card.id);
     let trashData = {
-      noteIdList : this.card.id,
+      noteIdList : [this.card.id],
       isDeleted:true
     }
     this.notesService.trashNotes(trashData).subscribe((response:any)=>{
@@ -56,19 +61,27 @@ export class IconsComponent implements OnInit {
     )
   }
 
-  setColor(color:any){
+  color(color:any){
     console.log("hi color api ");
-    let colorData = {
-      noteIdList : [this.card.id],
-      color: color
+    let data = {
+      color: color,
+      noteIdList: [this.card.id],
     }
-    this.notesService.colorNotes(colorData).subscribe((response:any)=>{
+    this.notesService.colorNotes(data).subscribe((response:any)=>{
       console.log(response);
+      this.colorEvent.emit(this.message);
     })
   }
 
-  color(noteColor:any){
-    console.log("hi color", noteColor);
-    this.setColor(noteColor);
+  openTrashSnackBar(message: string, action: string){
+    this.snackBar.open(message, action, {duration:3000});
+  }
+
+  openArchiveSnackBar(message: string, action: string){
+    this.snackBar.open(message, action, {duration:3000});
+  }
+
+  openColorSnackBar(message: string, action: string){
+    this.snackBar.open(message, action, {duration:3000});
   }
 }

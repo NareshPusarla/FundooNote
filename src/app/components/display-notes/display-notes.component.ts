@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NotesserviceService } from 'src/app/service/notesservice/notesservice.service';
 import { UpdateNotesComponent } from 'src/app/components/update-notes/update-notes.component';
@@ -11,9 +11,13 @@ import { UpdateNotesComponent } from 'src/app/components/update-notes/update-not
 export class DisplayNotesComponent implements OnInit {
 
   @Input() dataList:any;
+  @Output() displayColorEvent = new EventEmitter<string>();
+  message="display update";
   title:any;
   description:any;
   id: any;
+  show:boolean = true;
+
   constructor(private notesService:NotesserviceService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -34,4 +38,9 @@ export class DisplayNotesComponent implements OnInit {
     });
   }
   
+  colorMessage(e:any){
+    console.log(e);
+    
+    this.displayColorEvent.emit(this.message);
+  }
 }

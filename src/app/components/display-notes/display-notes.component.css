@@ -6,18 +6,20 @@ mat-card {
     border: 1px solid white;
     border-radius: 5px;
 }
+
+mat-card-content{
+    padding-left: 12px;
+}
  
 .card{
     margin-left: 45px;
     margin-top: 20px;
-    /* margin-right: 0px; */
 }
 
 .icons{
     padding-top: 7px;
-    display: flex;
-    justify-content: center;
     display: none;
+    padding-left: 15px;
 }
 
 mat-card:hover .icons{

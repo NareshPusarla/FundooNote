@@ -1,54 +1,56 @@
-<div class="border">
-
+<div class="border" >
     <div class="icons">
         <button mat-icon-button>
-            <mat-icon>notifications</mat-icon>
+            <img src="../../../assets/add_alert_black_24dp.svg" alt="">
         </button>
     </div>
     <div class="icons">
         <button mat-icon-button>
-            <mat-icon>person_add</mat-icon>
+            <img src="../../../assets/person_add_alt_black_24dp.svg" alt="">
         </button>
     </div>
     <div class="icons">
         <button mat-icon-button [matMenuTriggerFor]="changeColor">
-            <mat-icon>color_lens</mat-icon>
+            <img src="../../../assets/color_lens_black_24dp.svg" alt="">
         </button>
         <mat-menu #changeColor="matMenu" class="color-box">
-            <!-- <div class="themes">
-                <button id="red"></button>
-                <button id="green"></button>
-                <button id="black"></button>
-                <button id="orange"></button>
-                <button id="pink"></button>
-                <button id="yellow"></button>
-                <button id="chocolate"></button>
-                <button id="silver"></button>
-            </div> -->
             <div *ngFor="let noteColor of colors" class="themes">
-                <button [style.background]="noteColor?.code" class="color" (click)="color(noteColor)"></button>
+                <button [style.background]="noteColor?.code" class="color" (click)="color(noteColor.code); openColorSnackBar('notes color updated','dismiss')"></button>
             </div>
         </mat-menu>
     </div>
     <div class="icons">
         <button mat-icon-button>
-            <mat-icon>image</mat-icon>
+            <img src="../../../assets/insert_photo_black_24dp.svg" alt="">
         </button>
     </div>
     <div class="icons">
-        <button mat-icon-button (click)="archiveNote()">
-            <mat-icon>archive</mat-icon>
+        <button mat-icon-button (click)="archiveNote(); openArchiveSnackBar('notes moved to archive','dismiss')">
+            <img src="../../../assets/archive_black_24dp.svg" alt="">
         </button>
     </div>
     <div class="icons">
         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
+            <img src="../../../assets/more_vert_black_24dp.svg" alt="">
         </button>
 
         <mat-menu #menu="matMenu">
-            <button mat-menu-item class="matMenu" (click)="trash()">
+            <button mat-menu-item class="matMenu" (click)="trash(); openTrashSnackBar('notes moved to trash','dismiss')" >
                 <span>Delete note</span>
             </button>
         </mat-menu>
     </div>
 </div>
+<!-- 
+<div class="border" *ngIf="this.card.isDeleted === true">
+    <div class="icons">
+        <button mat-icon-button>
+            <img src="../../../assets/delete_forever_black_24dp.svg" alt="">
+        </button>
+    </div>
+    <div class="icons">
+        <button mat-icon-button>
+            <img src="../../../assets/restore_from_trash_black_24dp.svg" alt="">
+        </button>
+    </div>
+</div> -->

@@ -9,8 +9,8 @@
     background-color: transparent;
 }
 
-.icons{
-  display: initial;
+.icons img{
+  height: 20px;
 }
 
 button{
@@ -29,68 +29,18 @@ button{
 .themes{
   margin-left: 5px;
   display:inline-block ;
+  width: 60px;
 }
+
 .themes button{
   margin-top: 5px;
-  margin-right: 5px;
   cursor: pointer;
+  margin-left: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
 }
-
-/* #red{
-  background-color: red;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#orange{
-  background-color: orange;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#black{
-  background-color: black;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#green{
-  background-color: green;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#pink{
-  background-color: pink;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#silver{
-  background-color: silver;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#chocolate{
-  background-color: chocolate;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-#yellow{
-  background-color: yellow;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-} */
 
 mat-icon{
   opacity: 0.6;

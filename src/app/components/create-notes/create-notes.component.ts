@@ -10,7 +10,7 @@ import { NotesserviceService } from 'src/app/service/notesservice/notesservice.s
 export class CreateNotesComponent implements OnInit {
 
   @Output() messageEvent = new EventEmitter<string>();
-  message = "notes crated";
+  message = "notes created";
   show:boolean=false;
   title:any;
   desc:any;

@@ -1,5 +1,5 @@
 <div class="card" *ngFor="let dataNotes of dataList">
-  <mat-card>
+  <mat-card [style.background]="dataNotes.color">
     <mat-card-header>
       <mat-card-title (click)="openDialog(dataNotes)">
         <p>{{dataNotes.title}}</p>
@@ -9,7 +9,7 @@
       <p>{{dataNotes.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <app-icons [card]="dataNotes"  class="icons"></app-icons>
+      <app-icons [card]="dataNotes" class="icons" (colorEvent)="colorMessage($event)"></app-icons>
     </mat-card-actions>
   </mat-card>
 </div>
