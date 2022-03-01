@@ -10,6 +10,7 @@ import { NotesserviceService } from 'src/app/service/notesservice/notesservice.s
 export class GetAllNotesComponent implements OnInit {
 
   notes:any=[];
+  id:any;
   constructor( private notesService:NotesserviceService){ }
 
   ngOnInit(): void {
@@ -21,7 +22,6 @@ export class GetAllNotesComponent implements OnInit {
       console.log(res);
       this.notes=res.data.data;
       console.log(this.notes.reverse());
-      
     }, error=>{
       console.log(error); 
     })

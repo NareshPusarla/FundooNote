@@ -42,8 +42,11 @@ export class IconsComponent implements OnInit {
       noteIdList: [this.card.id],
       isArchived:true
     }
-    this.notesService.archivehNotes(archiveData).subscribe((response: any) => {
+    this.notesService.archiveNotes(archiveData).subscribe((response: any) => {
       console.log(response);
+      this.snackBar.open("moved to archive", "dismiss", {duration:3000});
+    }, error=>{
+      console.log(error);
     })
   }
 
@@ -55,6 +58,22 @@ export class IconsComponent implements OnInit {
     }
     this.notesService.trashNotes(trashData).subscribe((response:any)=>{
       console.log(response);
+      this.snackBar.open("moved to trash", "dismiss", {duration:3000});
+    }, error=>{
+      console.log(error);
+    }
+    )
+  }
+
+  deleteForever(){
+    console.log("card id", this.card.id);
+    let trashData = {
+      noteIdList : [this.card.id],
+      isDeleted:false
+    }
+    this.notesService.deleteNotesForever(trashData).subscribe((response:any)=>{
+      console.log(response);
+      this.snackBar.open("deleted permanently", "dismiss", {duration:3000});
     }, error=>{
       console.log(error);
     }
@@ -70,18 +89,8 @@ export class IconsComponent implements OnInit {
     this.notesService.colorNotes(data).subscribe((response:any)=>{
       console.log(response);
       this.colorEvent.emit(this.message);
+      this.snackBar.open("color applied", "dismiss", {duration:3000});
     })
   }
 
-  openTrashSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
-  }
-
-  openArchiveSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
-  }
-
-  openColorSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
-  }
 }
