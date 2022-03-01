@@ -64,7 +64,19 @@ export class NotesserviceService {
       return this.httpService.postData('notes/trashNotes', data, true, httpOptions)
   }
 
-  archivehNotes(data:any){
+  deleteNotesForever(data:any){
+    let httpOptions = {
+      headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': this.token
+      })
+      
+      }
+      console.log(data);
+      return this.httpService.postData('notes/deleteForeverNotes', data, true, httpOptions)
+  }
+
+  archiveNotes(data:any){
     let header={
       headers:new HttpHeaders({
         'Content-Type':'application/json',

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthserviceService } from './service/authentication/authservice.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -50,6 +51,7 @@ import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

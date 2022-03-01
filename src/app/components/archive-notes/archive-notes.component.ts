@@ -13,6 +13,7 @@ export class ArchiveNotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.archiveNotes();
+    console.log("hi archive list");
   }
 
   archiveNotes(){

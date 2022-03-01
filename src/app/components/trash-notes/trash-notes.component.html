@@ -1,1 +1,5 @@
-<app-display-notes [dataList]="trashList"></app-display-notes>
+<ng-container *ngFor="let dataNotes of trashList">
+    <tr *ngIf="dataNotes.isDeleted === true">
+        <app-display-notes [dataList]="dataNotes"></app-display-notes>
+    </tr>
+</ng-container>
