@@ -1,5 +1,1 @@
-<ng-container *ngFor="let dataNotes of archiveList">
-    <tr *ngIf="dataNotes.isArchived === true">
-        <app-display-notes [dataList]="dataNotes"></app-display-notes>
-    </tr>
-</ng-container>
+<app-display-notes [dataList]="archiveList" class="display"></app-display-notes>

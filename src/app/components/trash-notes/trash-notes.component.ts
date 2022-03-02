@@ -20,7 +20,7 @@ export class TrashNotesComponent implements OnInit {
     this.notesService.getTrashNotes().subscribe((res:any)=>{
       console.log(res);
       this.trashList = res.data.data;
-      console.log(this.trashList);
+      console.log(this.trashList.reverse());
       
     }, error=>{
       console.log(error); 

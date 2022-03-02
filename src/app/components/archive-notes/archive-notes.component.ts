@@ -17,10 +17,10 @@ export class ArchiveNotesComponent implements OnInit {
   }
 
   archiveNotes(){
-    this.notesService.getTrashNotes().subscribe((res:any)=>{
+    this.notesService.getArchiveNotes().subscribe((res:any)=>{
       console.log(res);
       this.archiveList = res.data.data;
-      console.log(this.archiveList);
+      console.log(this.archiveList.reverse());
       
     }, error=>{
       console.log(error); 

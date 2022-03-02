@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NotesserviceService } from 'src/app/service/notesservice/notesservice.service';
 import { UpdateNotesComponent } from 'src/app/components/update-notes/update-notes.component';
+import { DataserviceService } from 'src/app/service/dataservice/dataservice.service';
 
 @Component({
   selector: 'app-display-notes',
@@ -11,17 +12,19 @@ import { UpdateNotesComponent } from 'src/app/components/update-notes/update-not
 export class DisplayNotesComponent implements OnInit {
 
   @Input() dataList:any;
-  @Output() displayColorEvent = new EventEmitter<string>();
+  @Output() displayEvent = new EventEmitter<string>();
+  filteredString = "";
   message="display update";
   title:any;
   description:any;
   id: any;
   show:boolean = true;
 
-  constructor(private notesService:NotesserviceService, public dialog: MatDialog) { }
+  constructor(private notesService:NotesserviceService, public dialog: MatDialog, private dataService:DataserviceService) { }
 
   ngOnInit(): void {
     console.log(this.dataList);
+    this.dataService.share.subscribe(x => this.filteredString = x);
   }
 
   openDialog(dataNotes:any): void {
@@ -38,9 +41,8 @@ export class DisplayNotesComponent implements OnInit {
     });
   }
   
-  colorMessage(e:any){
+  refreshMessage(e:any){
     console.log(e);
-    
-    this.displayColorEvent.emit(this.message);
+    this.displayEvent.emit(this.message);
   }
 }

@@ -1,18 +1,18 @@
-<div class="card">
-  <mat-card [style.background]="dataList.color">
+<div class="cards" *ngFor="let data of dataList | filter:filteredString">
+  <mat-card [style.background]="data.color">
 
     <mat-card-header>
-      <mat-card-title (click)="openDialog(dataList)">
-        <p>{{dataList.title}}</p>
+      <mat-card-title (click)="openDialog(data)">
+        <p>{{data.title}}</p>
       </mat-card-title>
     </mat-card-header>
 
-    <mat-card-content (click)="openDialog(dataList)">
-      <p>{{dataList.description}}</p>
+    <mat-card-content (click)="openDialog(data)">
+      <p>{{data.description}}</p>
     </mat-card-content>
 
     <mat-card-actions>
-      <app-icons [card]="dataList" class="icons" (colorEvent)="colorMessage($event)"></app-icons>
+      <app-icons [card]="data" class="icons" (refresh)="refreshMessage($event)"></app-icons>
     </mat-card-actions>
     
   </mat-card>

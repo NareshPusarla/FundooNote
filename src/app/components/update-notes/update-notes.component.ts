@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DisplayNotesComponent } from '../display-notes/display-notes.component';
@@ -11,6 +11,8 @@ import { NotesserviceService } from '../../service/notesservice/notesservice.ser
 })
 export class UpdateNotesComponent implements OnInit {
 
+  @Output() refresh = new EventEmitter<string>();
+  message = "update refreshed"
   title:any;
   description:any;
   id:any;
@@ -35,13 +37,12 @@ export class UpdateNotesComponent implements OnInit {
     }
     this.noteService.updateNotes(data).subscribe((response:any)=>{
       console.log("updated notes", response);
+      this.refresh.emit(this.message);
+      this.snackBar.open("notes updated", "dismiss", {duration:3000});
     }, error=>{
       console.log(error);
     })
     this.dialogRef.close();
   }
 
-  openSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
-  }
 }

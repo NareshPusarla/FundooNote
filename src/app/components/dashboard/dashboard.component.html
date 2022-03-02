@@ -1,24 +1,39 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar class="example-toolbar">
-        <button mat-icon-button (click)="snav.toggle()" id="menu">
-            <mat-icon class="menu">menu</mat-icon>
-        </button>
+    <mat-toolbar class="example-toolbar" fxLayout="row" fxLayout.xs="row">
+        <div fxLayout.xs="column">
+            <button mat-icon-button (click)="snav.toggle()" id="menu">
+                <mat-icon class="menu">menu</mat-icon>
+            </button>
+        </div>
         <div class="bulb">
             <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt=""
                 style="width: 40px;">
         </div>
         <p class="fundoo">Fundoo</p>
-        <mat-form-field appearance="outline" class="search">
-            <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px; ">
-            <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
-        </mat-form-field>
-        <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh">
-        <img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream">
-        <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
-        <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
-        <button (click)="logout(); openSnackBar('successfully logged out','dismiss')" class="person">
-            <img src="../../../assets/person_black_24dp.svg" alt="" class="apps">
-        </button>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="row" fxFlex.xs="18">
+            <mat-form-field appearance="outline" class="search">
+                <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px; " #search [(ngModel)]="filteredString" (keyup)="updateText(search.value)">
+                <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
+                
+            </mat-form-field>
+            <!-- <div>
+                <app-display-notes [searchName] = "filterdString"></app-display-notes>
+            </div> -->
+        </div>
+        
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="row" fxFlex.xs="27">
+            <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh">
+            <img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream">
+            <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayout.xs="row" fxFlex.xs="25">
+            <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayout.xs="row" fxFlex.xs="15" >
+            <button (click)="logout()" class="person">
+                <img src="../../../assets/person_black_24dp.svg" alt="" class="apps">
+            </button>
+        </div>
     </mat-toolbar>
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -52,4 +67,5 @@
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
+    <app-display-notes></app-display-notes>
 </div>
