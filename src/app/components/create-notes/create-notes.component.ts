@@ -36,15 +36,12 @@ export class CreateNotesComponent implements OnInit {
     this.notes.addNotes(reqdata).subscribe((response:any)=>{
       console.log("hi",response);
       this.messageEvent.emit(this.message);
+      this.snackBar.open("notes created", "dsimiss", {duration:3000});
       
     }, error=>{
       console.log(error);
     })
     
-  }
-
-  openSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
   }
 
 }

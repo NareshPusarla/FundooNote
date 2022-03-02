@@ -19,9 +19,15 @@ export class GetAllNotesComponent implements OnInit {
 
   getNotes(){
     this.notesService.getNotes().subscribe((res:any)=>{
-      console.log(res);
+      console.log("hi res",res);
       this.notes=res.data.data;
+      // dataNotes.isDeleted === false && dataNotes.isArchived === false
+      this.notes = this.notes.filter(function(ele:any){
+        return ele.isDeleted === false && ele.isArchived === false;
+      });
+
       console.log(this.notes.reverse());
+      
     }, error=>{
       console.log(error); 
     })

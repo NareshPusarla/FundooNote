@@ -11,6 +11,7 @@ import { CreateNotesComponent } from './components/create-notes/create-notes.com
 import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
 import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
+import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
 
 const routes: Routes = [
   {path:'register',component:CreateUserComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'notes', component:GetAllNotesComponent},
   {path:'archiveNotes', component:ArchiveNotesComponent},
   {path:'trashNotes', component:TrashNotesComponent},
+  {path:'displayNotes', component:DisplayNotesComponent},
   {path:'dashboard', component:DashboardComponent,
     children:[{path:'notes', component:GetAllNotesComponent},
     {path:'trashNotes', component:TrashNotesComponent},

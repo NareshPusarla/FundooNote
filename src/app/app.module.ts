@@ -32,6 +32,7 @@ import { DisplayNotesComponent } from './components/display-notes/display-notes.
 import { UpdateNotesComponent } from './components/update-notes/update-notes.component';
 import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.
     DisplayNotesComponent,
     UpdateNotesComponent,
     TrashNotesComponent,
-    ArchiveNotesComponent
+    ArchiveNotesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

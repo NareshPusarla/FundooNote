@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { NotesserviceService } from 'src/app/service/notesservice/notesservice.service';
-import { DisplayNotesComponent } from '../display-notes/display-notes.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { DisplayNotesComponent } from '../display-notes/display-notes.component';
 
 @Component({
   selector: 'app-icons',
@@ -11,11 +12,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class IconsComponent implements OnInit {
 
   @Input() card:any;
-  @Output() colorEvent = new EventEmitter<string>();
-  message = "color applied";
+  @Output() refresh = new EventEmitter<string>();
+  colorMessage = "color applied";
+  archiveMessage="archive refreshed";
+  trashMessage = "trash refreshed";
+  message = "refreshed";
   id:any;
-  show:boolean = true;
-  
+
   colors: Array<any> = [
     { code: '#FF6347', name: 'red' },
     { code: '#FF4500', name: 'orange' },
@@ -31,9 +34,13 @@ export class IconsComponent implements OnInit {
     { code: '#D3D3D3', name: 'grey'}
   ]
 
-  constructor(private notesService:NotesserviceService, private snackBar: MatSnackBar) { }
+  constructor(private notesService:NotesserviceService, private snackBar: MatSnackBar, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let comp = this.route.snapshot.component;
+    if(comp == DisplayNotesComponent){
+      
+    }
   }
 
   archiveNote(){
@@ -44,6 +51,7 @@ export class IconsComponent implements OnInit {
     }
     this.notesService.archiveNotes(archiveData).subscribe((response: any) => {
       console.log(response);
+      this.refresh.emit(this.archiveMessage);
       this.snackBar.open("moved to archive", "dismiss", {duration:3000});
     }, error=>{
       console.log(error);
@@ -58,7 +66,24 @@ export class IconsComponent implements OnInit {
     }
     this.notesService.trashNotes(trashData).subscribe((response:any)=>{
       console.log(response);
+      this.refresh.emit(this.trashMessage);
       this.snackBar.open("moved to trash", "dismiss", {duration:3000});
+    }, error=>{
+      console.log(error);
+    }
+    )
+  }
+
+  restore(){
+    console.log("card id", this.card.id);
+    let trashData = {
+      noteIdList : [this.card.id],
+      isDeleted:false
+    }
+    this.notesService.trashNotes(trashData).subscribe((response:any)=>{
+      console.log(response);
+      this.refresh.emit(this.message);
+      this.snackBar.open("restored from trash", "dismiss", {duration:3000});
     }, error=>{
       console.log(error);
     }
@@ -69,10 +94,11 @@ export class IconsComponent implements OnInit {
     console.log("card id", this.card.id);
     let trashData = {
       noteIdList : [this.card.id],
-      isDeleted:false
+      isDeleted:true
     }
     this.notesService.deleteNotesForever(trashData).subscribe((response:any)=>{
       console.log(response);
+      this.refresh.emit(this.message);
       this.snackBar.open("deleted permanently", "dismiss", {duration:3000});
     }, error=>{
       console.log(error);
@@ -88,7 +114,7 @@ export class IconsComponent implements OnInit {
     }
     this.notesService.colorNotes(data).subscribe((response:any)=>{
       console.log(response);
-      this.colorEvent.emit(this.message);
+      this.refresh.emit(this.colorMessage);
       this.snackBar.open("color applied", "dismiss", {duration:3000});
     })
   }
