@@ -26,4 +26,8 @@ export class TrashNotesComponent implements OnInit {
       console.log(error); 
     })
   }
+
+  receiveMessage(e:any){
+    this.trashNotes();
+  }
 }

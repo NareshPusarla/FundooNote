@@ -3,6 +3,8 @@ import { NotesserviceService } from 'src/app/service/notesservice/notesservice.s
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { DisplayNotesComponent } from '../display-notes/display-notes.component';
+import { TrashNotesComponent } from '../trash-notes/trash-notes.component';
+import { ArchiveNotesComponent } from '../archive-notes/archive-notes.component';
 
 @Component({
   selector: 'app-icons',
@@ -18,6 +20,9 @@ export class IconsComponent implements OnInit {
   trashMessage = "trash refreshed";
   message = "refreshed";
   id:any;
+  isDisplayNotesComponent:boolean = false;
+  isTrashComponent:boolean = false;
+  isArchiveComponent:boolean = false;
 
   colors: Array<any> = [
     { code: '#FF6347', name: 'red' },
@@ -38,9 +43,19 @@ export class IconsComponent implements OnInit {
 
   ngOnInit(): void {
     let comp = this.route.snapshot.component;
+
     if(comp == DisplayNotesComponent){
-      
+      this.isDisplayNotesComponent = true;
     }
+
+    if(comp == TrashNotesComponent){
+      this.isTrashComponent = true;
+    }
+
+    if(comp == ArchiveNotesComponent){
+      this.isArchiveComponent = true;
+    }
+    
   }
 
   archiveNote(){
@@ -53,6 +68,21 @@ export class IconsComponent implements OnInit {
       console.log(response);
       this.refresh.emit(this.archiveMessage);
       this.snackBar.open("moved to archive", "dismiss", {duration:3000});
+    }, error=>{
+      console.log(error);
+    })
+  }
+
+  unArchiveNote(){
+    console.log(this.card.id);
+    let archiveData = { 
+      noteIdList: [this.card.id],
+      isArchived:false
+    }
+    this.notesService.archiveNotes(archiveData).subscribe((response: any) => {
+      console.log(response);
+      this.refresh.emit(this.archiveMessage);
+      this.snackBar.open("moved from archive", "dismiss", {duration:3000});
     }, error=>{
       console.log(error);
     })

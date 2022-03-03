@@ -13,11 +13,12 @@ export class FilterPipe implements PipeTransform {
 
     const dataArray:any[] = [];
     for(let data of value){
-      if(data.title.toLowerCase() === filterString || data.description.toLowerCase() === filterString){
+      if(data.title.toLocaleLowerCase().includes(filterString) || data.description.toLocaleLowerCase().includes(filterString)){
         dataArray.push(data);
       }
     }
+    
+
     return dataArray;
   }
-  
 }

@@ -27,7 +27,9 @@ export class DashboardComponent implements OnDestroy {
   }
 
   updateText(filteredString: any){
-    this.dataService.updateData(filteredString);
+    console.log("hi this is string msg", filteredString.target.value);
+    
+    this.dataService.updateData(filteredString.target.value);
   }
 
   logout(){

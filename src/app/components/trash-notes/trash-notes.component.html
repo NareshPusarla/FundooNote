@@ -1,1 +1,1 @@
-<app-display-notes [dataList]="trashList" class="display"></app-display-notes>
+<app-display-notes [dataList]="trashList" (displayEvent)="receiveMessage($event)" class="display"></app-display-notes>
