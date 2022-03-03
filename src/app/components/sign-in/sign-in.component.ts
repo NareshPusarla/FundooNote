@@ -34,8 +34,10 @@ export class SignInComponent implements OnInit {
         }
         this.userService.userLogin(this.data).subscribe((response:any)=>{
           console.log(response)
-          localStorage.setItem('token',response.id)
+          localStorage.setItem('token',response.id);
+          this.snackBar.open('user login successful','dismiss', {duration:3000});
           this.router.navigateByUrl("/dashboard/notes")
+          
         }, error=>{
           console.log(error);
         })
@@ -44,9 +46,4 @@ export class SignInComponent implements OnInit {
       console.log("invalid");
     }
   }
-
-  openSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
-  }
-
 }

@@ -1,32 +1,33 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar class="example-toolbar" fxLayout="row" fxLayout.xs="row">
-        <div fxLayout.xs="column">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxLayout="column" fxLayoutAlign="start center">
+    <mat-toolbar class="example-toolbar">
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="center center" fxFlex.xs="10" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxFlex.gt-xs="30">
             <button mat-icon-button (click)="snav.toggle()" id="menu">
                 <mat-icon class="menu">menu</mat-icon>
             </button>
         </div>
-        <div class="bulb">
-            <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt=""
-                style="width: 40px;">
+        <div class="bulb" fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxFlex.xs="10"  fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxFlex.gt-xs="30">
+            <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="" style="width: 40px;">
         </div>
-        <p class="fundoo">Fundoo</p>
-        <div fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="row" fxFlex.xs="18">
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxFlex.xs="5"  fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start center" fxFlex.gt-xs="10">
+            <p class="fundoo">Fundoo</p>
+        </div>
+        
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxFlex.xs="28" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start center" fxFlex.gt-xs="28">
             <mat-form-field appearance="outline" class="search">
-                <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px; " (keyup)="updateText($event)">
+                <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px;" (keyup)="updateText($event)">
                 <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
-                
             </mat-form-field>
         </div>
         
-        <div fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="row" fxFlex.xs="27">
-            <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh">
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxHide.xs="none" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start center">
+            <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh" >
             <img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream">
             <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
-        </div>
-        <div fxLayout="row" fxLayoutAlign="end center" fxLayout.xs="row" fxFlex.xs="25">
+        
             <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
         </div>
-        <div fxLayout="row" fxLayoutAlign="end center" fxLayout.xs="row" fxFlex.xs="15" >
+
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="end center">
             <button (click)="logout()" class="person">
                 <img src="../../../assets/person_black_24dp.svg" alt="" class="apps">
             </button>
