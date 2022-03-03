@@ -1,4 +1,5 @@
-<div class="border" *ngIf="(this.card.isDeleted === false && this.card.isArchived === false); else elseBlock">
+<div class="border" *ngIf="(!isDisplayNotesComponent && isArchiveComponent || !isTrashComponent); else elseBlock">
+
     <div class="icons">
         <button mat-icon-button>
             <img src="../../../assets/add_alert_black_24dp.svg" alt="">
@@ -24,33 +25,30 @@
             <img src="../../../assets/insert_photo_black_24dp.svg" alt="">
         </button>
     </div>
-    
+
     <div class="icons" *ngIf="this.card.isArchived === false; else unarchive">
         <button mat-icon-button (click)="archiveNote()">
             <img src="../../../assets/archive_black_24dp.svg" alt="">
         </button>
     </div>
-    
+
     <div class="icons">
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <img src="../../../assets/more_vert_black_24dp.svg" alt="">
         </button>
 
         <mat-menu #menu="matMenu">
-            <button mat-menu-item class="matMenu" (click)="trash()" >
+            <button mat-menu-item class="matMenu" (click)="trash()">
                 <span>Delete note</span>
             </button>
         </mat-menu>
     </div>
 </div>
 
-
 <ng-template #unarchive>
-    <div class="icons">
-        <button mat-icon-button>
-            <img src="../../../assets/unarchive_black_24dp.svg" alt="">
-        </button>
-    </div>
+    <button mat-icon-button (click)="unArchiveNote()">
+        <img src="../../../assets/unarchive_black_24dp.svg" alt="">
+    </button>
 </ng-template>
 
 <ng-template #elseBlock>

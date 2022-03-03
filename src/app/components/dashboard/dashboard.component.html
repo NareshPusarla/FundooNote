@@ -12,13 +12,10 @@
         <p class="fundoo">Fundoo</p>
         <div fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="row" fxFlex.xs="18">
             <mat-form-field appearance="outline" class="search">
-                <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px; " #search [(ngModel)]="filteredString" (keyup)="updateText(search.value)">
+                <input matInput placeholder="Search" style="font-size: 16px; margin-left: -100px; " (keyup)="updateText($event)">
                 <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
                 
             </mat-form-field>
-            <!-- <div>
-                <app-display-notes [searchName] = "filterdString"></app-display-notes>
-            </div> -->
         </div>
         
         <div fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="row" fxFlex.xs="27">

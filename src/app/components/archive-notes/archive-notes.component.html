@@ -1,1 +1,1 @@
-<app-display-notes [dataList]="archiveList" class="display"></app-display-notes>
+<app-display-notes [dataList]="archiveList" (displayEvent)="receiveMessage($event)" class="display"></app-display-notes>

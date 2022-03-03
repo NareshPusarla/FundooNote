@@ -26,4 +26,8 @@ export class ArchiveNotesComponent implements OnInit {
       console.log(error); 
     })
   }
+
+  receiveMessage(e:any){
+    this.archiveNotes();
+  }
 }

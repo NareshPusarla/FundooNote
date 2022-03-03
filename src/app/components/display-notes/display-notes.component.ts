@@ -45,4 +45,6 @@ export class DisplayNotesComponent implements OnInit {
     console.log(e);
     this.displayEvent.emit(this.message);
   }
+
+  
 }
