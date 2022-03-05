@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DisplayNotesComponent } from '../display-notes/display-notes.component';
 import { NotesserviceService } from '../../service/notesservice/notesservice.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class UpdateNotesComponent implements OnInit {
   description:any;
   id:any;
 
-  constructor(private noteService:NotesserviceService , public dialogRef: MatDialogRef<UpdateNotesComponent>, 
+  constructor(private noteService:NotesserviceService, public dialogRef: MatDialogRef<UpdateNotesComponent>, 
     @Inject(MAT_DIALOG_DATA) public note: any, private snackBar: MatSnackBar) { 
    
   }
@@ -38,7 +37,7 @@ export class UpdateNotesComponent implements OnInit {
     this.noteService.updateNotes(data).subscribe((response:any)=>{
       console.log("updated notes", response);
       this.snackBar.open("notes updated", "dismiss", {duration:3000});
-
+      window.location.reload();
     }, error=>{
       console.log(error);
     })

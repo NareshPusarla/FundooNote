@@ -1,6 +1,6 @@
 mat-card {
     width: 230px;
-    height: 120px;
+    height: auto;
     padding: 10px;
     margin-right: 0px;
     border: 1px solid white;
@@ -26,4 +26,8 @@ mat-card:hover .icons{
     display: block;
 }
 
+.style{
+    width: 700px;
+    height: auto;
+}
 

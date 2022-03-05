@@ -18,13 +18,15 @@ export class DisplayNotesComponent implements OnInit {
   title:any;
   description:any;
   id: any;
-  show:boolean = true;
+
+  visible:any;
 
   constructor(private notesService:NotesserviceService, public dialog: MatDialog, private dataService:DataserviceService) { }
 
   ngOnInit(): void {
     console.log(this.dataList);
     this.dataService.share.subscribe(x => this.filteredString = x);
+    this.dataService.funShare.subscribe(x => this.visible = x);
   }
 
   openDialog(dataNotes:any): void {

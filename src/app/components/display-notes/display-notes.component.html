@@ -1,6 +1,6 @@
 <div class="cards" *ngFor="let data of dataList | filter:filteredString">
-  <mat-card [style.background]="data.color">
-
+  <mat-card [style.background]="data.color" [class.style]="visible"> 
+    
     <mat-card-header>
       <mat-card-title (click)="openDialog(data)">
         <p>{{data.title}}</p>
