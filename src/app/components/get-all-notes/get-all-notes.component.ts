@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { DataserviceService } from 'src/app/service/dataservice/dataservice.service';
 import { NotesserviceService } from 'src/app/service/notesservice/notesservice.service';
 
 @Component({
@@ -11,17 +12,19 @@ export class GetAllNotesComponent implements OnInit {
 
   notes:any=[];
   id:any;
-  constructor( private notesService:NotesserviceService){ }
+  visible:any;
+
+  constructor( private notesService:NotesserviceService, private dataService:DataserviceService){  }
 
   ngOnInit(): void {
     this.getNotes();
+    this.dataService.funShare.subscribe(x => this.visible = x);
   }
 
   getNotes(){
     this.notesService.getNotes().subscribe((res:any)=>{
       console.log("hi res",res);
       this.notes=res.data.data;
-      // dataNotes.isDeleted === false && dataNotes.isArchived === false
       this.notes = this.notes.filter(function(ele:any){
         return ele.isDeleted === false && ele.isArchived === false;
       });

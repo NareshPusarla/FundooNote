@@ -12,6 +12,7 @@ export class CreateUserComponent implements OnInit {
 
   registerForm!: FormGroup;
   submitted = false;
+  inputType:string = "password";
 
   constructor(private formBuilder: FormBuilder, private userService:UserserviceService, private snackBar: MatSnackBar) {}
 
@@ -24,6 +25,10 @@ export class CreateUserComponent implements OnInit {
       confirm: ['', Validators.required],
       service: "advance"
     });
+  }
+
+  showPassword(event:any):void{
+      event.target.checked ? this.inputType = "text": this.inputType = "password"; 
   }
 
   onSubmit(){
@@ -39,16 +44,13 @@ export class CreateUserComponent implements OnInit {
         }
         this.userService.userRegister(data).subscribe((response:any)=>{
           console.log(response);
+          this.snackBar.open('registration done','dismiss', {duration:3000});
         }, error=>{
           console.log(error);
         })
     } else {
       console.log("invalid");
     }
-  }
-
-  openSnackBar(message: string, action: string){
-    this.snackBar.open(message, action, {duration:3000});
   }
 
 }

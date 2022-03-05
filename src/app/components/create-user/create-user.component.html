@@ -41,13 +41,13 @@
 
       <mat-form-field appearance="outline" class="password">
         <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Password" formControlName="password" id="pass1">
+        <input matInput [type]="inputType" placeholder="Password" formControlName="password" id="pass1">
         <mat-error>Enter password</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Confirm</mat-label>
-        <input matInput type="password" placeholder="Confirm" formControlName="confirm" id="pass2">
+        <input matInput [type]="inputType" placeholder="Confirm" formControlName="confirm" id="pass2">
         <mat-error>Confirm the password</mat-error>
       </mat-form-field>
     </div>
@@ -55,11 +55,11 @@
       <a href="" class="line3">Use 8 more characters with a mix of letters, numbers & symbols.</a>
     </div>
     <div class="">
-      <input type="checkbox" onclick="showPassword()" id="icon"> Show Password
+      <input type="checkbox" (change)="showPassword($event)" id="icon"> Show Password
     </div>
 
     <a href="../sign-in/sign-in.component.html" class="line4" routerLink="/login">Sign in instead</a>
-    <input type="submit" name="" value="Next" id="button" (click)="openSnackBar('registration done','dismiss')">
+    <input type="submit" name="" value="Next" id="button">
      
   </form>
   <div class="side-image">
@@ -68,19 +68,3 @@
     <p id="p2">working for you.</p>
   </div>
 </div>
-<script type="text/javascript">
-  function showPassword(){
-    var show= document.getElementById('pass1');
-    var confirm= document.getElementById('pass2');
-
-    if (show.type == 'password', confirm.type == 'password') {
-      show.type='text';
-      confirm.type='text';
-
-    }else {
-      show.type='password';
-      confirm.type='password';
-    }
-
-  }
-</script>

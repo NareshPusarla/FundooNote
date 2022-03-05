@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from "@angular/material/icon";
-import {DomSanitizer} from '@angular/platform-browser';
+import { Component, Input, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,10 +12,10 @@ import { DataserviceService } from 'src/app/service/dataservice/dataservice.serv
 })
 export class DashboardComponent implements OnDestroy {
 
-  
+  isGrid = false;
+  // isVisible:boolean = false;
   mobileQuery: MediaQueryList;
   filteredString = "";
-
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router, private snackBar: MatSnackBar, private dataService:DataserviceService) {
@@ -28,7 +26,6 @@ export class DashboardComponent implements OnDestroy {
 
   updateText(filteredString: any){
     console.log("hi this is string msg", filteredString.target.value);
-    
     this.dataService.updateData(filteredString.target.value);
   }
 
@@ -43,4 +40,30 @@ export class DashboardComponent implements OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
+  listView(){
+    this.isGrid=true;
+    this.dataService.sendFun(this.myFunction().valueOf());
+    console.log("function",this.myFunction());
+    console.log("grid",this.isGrid);
+  }
+
+  gridView(){
+    this.isGrid=false;
+    this.dataService.sendFun(this.myFunction().valueOf());
+    console.log("function",this.myFunction());
+    console.log("grid",this.isGrid);
+  }
+
+  check:boolean= false;
+  myFunction(){
+    if(this.check ==  false){
+      this.check=true;
+      return this.check
+    }
+    else{
+      this.check=false;
+      return this.check
+    }
+    
+  }
 }
