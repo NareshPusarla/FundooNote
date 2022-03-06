@@ -1,40 +1,43 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxLayout="column" fxLayoutAlign="start center">
-    <mat-toolbar class="example-toolbar">
-        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="center center" fxFlex.xs="10">
-            <button mat-icon-button (click)="snav.toggle();" id="menu">
-                <mat-icon class="menu">menu</mat-icon>
-            </button>
-        </div>
-        <div class="bulb" fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxFlex.xs="10">
-            <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="" style="width: 40px;">
-        </div>
-        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxFlex.xs="5">
-            <p class="fundoo">Fundoo</p>
-        </div>
-        
-        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxFlex.xs="28">
-            <mat-form-field appearance="outline" class="search">
-                <input matInput placeholder="Search" style="font-size: 16px; margin-left: 20px;" (keyup)="updateText($event)">
-                <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
-            </mat-form-field>
-        </div>
-        
-        <div fxLayout="row" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="start center" fxHide.xs="none">
-            <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh" >
-            <div *ngIf="!isGrid"><img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream" (click)="listView();myFunction()"></div>
-            <div *ngIf="isGrid"><img src="../../../assets/grid_view_black_24dp.svg" alt="" class="view_stream" (click)="gridView();myFunction()"></div>
-            <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
-        </div>
-        
-        <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxLayout="column">
+    <div fxLayout="column">
+        <mat-toolbar class="example-toolbar">
+            <div fxLayout="row" fxLayout.xs="row" fxFlex.xs="10">
+                <button mat-icon-button (click)="snav.toggle();" id="menu">
+                    <mat-icon class="menu">menu</mat-icon>
+                </button>
+            </div>
+            <div class="bulb" fxLayout="row" fxHide.xs="true" fxFlex.xs="10">
+                <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="" style="width: 40px;">
+            </div>
+            <div fxLayout="row" fxLayout.xs="row">
+                <p class="fundoo">Fundoo</p>
+            </div>
+            
+            <div fxLayout="row" fxLayout.xs="row" fxFlex.xs="50">
+                <mat-form-field appearance="outline" class="search">
+                    <input matInput placeholder="Search" style="font-size: 16px; margin-left: 20px;" (keyup)="updateText($event)">
+                    <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="row" fxHide.xs="true">
+                <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh" >
+                <div *ngIf="!isGrid"><img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream" (click)="listView();myFunction()"></div>
+                <div *ngIf="isGrid"><img src="../../../assets/grid_view_black_24dp.svg" alt="" class="view_stream" (click)="gridView();myFunction()"></div>
+                <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
+            </div>
+            
+            <div fxHide.xs="true">
+                <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
+            </div>
 
-        <div fxLayout="column" fxLayoutAlign="start center" fxLayout.xs="row" fxLayoutAlign.xs="end center">
-            <button (click)="logout()" class="person">
-                <img src="../../../assets/person_black_24dp.svg" alt="">
-            </button>
-        </div>
-    </mat-toolbar>
-
+            <div fxLayout="row" fxLayout.xs="row" fxFlex.xs="20" fxLayoutAlign.xs="end center">
+                <button (click)="logout()" class="person">
+                    <img src="../../../assets/person_black_24dp.svg" alt="">
+                </button>
+            </div>
+        </mat-toolbar>
+    </div>
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
         <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
             fixedTopGap="56">

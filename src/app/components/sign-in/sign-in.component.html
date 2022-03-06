@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" fxLayout="column">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div fxLayout.xs="column" fxLayoutAlign.xs="center">
+        <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign.xs="start">
             <div class="fundoo">
                 <p id="f" style="color: blue;">F</p>
                 <p id="u" style="color: burlywood;">u</p>
@@ -14,7 +14,7 @@
                 <p style="font-size: 18px;" id="use">Use your Fundoo Account</p>
             </div>
         </div>
-        <div fxLayout.xs="column" fxLayoutAlign.xs="center center" >
+        <div fxLayout="column" fxLayout.xs="column" [ngStyle.xs]="{'margin-left.px': 75}">
             <div class="details" >
                 <mat-form-field appearance="outline" class="box">
                     <mat-label>Email or Phone</mat-label>
@@ -22,7 +22,7 @@
                     <mat-error>Enter first name</mat-error>
                 </mat-form-field>
             </div>
-            <div fxLayout.xs="column" fxLayoutAlign.xs="start center" >
+            <div>
                 <a href="../forgot-email/forgot-email.component.html" routerLink="/forget">Forgot email?</a>
             </div>
             <div class="details">
@@ -35,18 +35,17 @@
         </div>
         <!-- <a href="../reset-password/reset-password.component.html" routerLink="/reset">Forgot or Reset Password?</a> -->
 
-        <div fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
+        <div fxLayout="column" fxLayout.xs="column" [ngStyle.xs]="{'margin-left.px': 75}">
             <div class="more">
                 <p style="font-size: 14px;">Not your computer? Use guest mode to sign in privately</p>
             </div>
             <a href="">Learn more</a>
         </div>
-        <div fxLayout.xs="column" fxLayoutAlign.xs="space-around center">
-            <div class="footer">
-                <div class="c1"><a href="">Create Account</a></div>
-                <div class="c2">
-                    <button>Next</button>
-                </div>
+
+        <div class="footer" fxLayout="row" fxLayout.xs="row" [ngStyle.xs]="{'margin-left.px': 75}">
+            <div class="c1"><a href="">Create Account</a></div>
+            <div class="c2">
+                <button>Next</button>
             </div>
         </div>
 

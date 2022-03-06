@@ -16,14 +16,6 @@ body{
   margin: 23px 0 23px 5px;
 }
 
-#icon{
-  width: 20px;
-  height: 15px;
-  position: relative;
-  top: 2px;
-  cursor: pointer;
-}
-
 .main{
   width: 100%;
 }
@@ -84,6 +76,13 @@ a{
   width: 310px;
 }
 
+#icon{
+  width: 20px;
+  height: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
 .line4{
   font-size: 15px;
   margin: 25px 8px;
@@ -93,7 +92,6 @@ a{
 .side-image{
   display: inline-block;
   position: relative;
-  top: 28px;
   left: 46.5%;
   transform: translate(50%, 50%);
 }
@@ -120,6 +118,7 @@ a{
 #button{
   color: white;
   background-color: #1f52f9;
+  margin-top: 20px;
   width: 80px;
   height: 35px;
   position: relative;

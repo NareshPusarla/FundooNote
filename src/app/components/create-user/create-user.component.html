@@ -1,68 +1,83 @@
-<div class="main">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="fundoo" fxLayout.xs="row" fxLayoutAlign.xs="center center">
-      <p id="f" style="color: blue;">F</p>
-      <p id="u" style="color: burlywood;">u</p>
-      <p id="n" style="color: darkorange;">n</p>
-      <p id="d" style="color: blue;">d</p>
-      <p id="o" style="color: skyblue;">o</p>
-      <p id="o" style="color: coral;">o</p>
-    </div>
-    <div fxLayout.xs="column" fxLayoutAlign.xs="center center">
-      <h3>Create your Fundoo Account</h3>
-    </div>
-    <div class="name" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center"> 
-      <mat-form-field appearance="outline" class="fname">
-        <mat-label>First Name</mat-label>
-        <input matInput placeholder="First Name" formControlName="firstName">
-        <mat-error>Enter first name</mat-error>
-      </mat-form-field>
+<div class="main" fxLayout="row">
+  <div fxLayout="column" [ngStyle.xs]="{'font-size.px': 10}" [ngStyle.sm]="{'font-size.px': 15}">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="fundoo" fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 200}" 
+      fxLayout.sm="row" fxLayoutAlign.sm="center center" [ngStyle.sm]="{'margin-right.px': 200}">
+        <p id="f" style="color: blue;">F</p>
+        <p id="u" style="color: burlywood;">u</p>
+        <p id="n" style="color: darkorange;">n</p>
+        <p id="d" style="color: blue;">d</p>
+        <p id="o" style="color: skyblue;">o</p>
+        <p id="o" style="color: coral;">o</p>
+      </div>
+      <div fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 200}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 130}">
+        <h3>Create your Fundoo Account</h3>
+      </div>
+      <div class="name" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -100}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}"> 
+        <mat-form-field appearance="outline" class="fname">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" formControlName="firstName">
+          <mat-error>Enter first name</mat-error>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Last Name" formControlName="lastName">
-        <mat-error>Enter last name</mat-error>
-      </mat-form-field>
-    </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" formControlName="lastName">
+          <mat-error>Enter last name</mat-error>
+        </mat-form-field>
+      </div>
 
-    <div fxLayoutAlign.xs="center">
-      <mat-form-field appearance="outline" class="user-name">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" formControlName="userName" >
-        <mat-error>Enter email</mat-error>
-      </mat-form-field>
-    </div>
+      <div fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 73}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80, 'width.px':750}">
+        <mat-form-field appearance="outline" class="user-name">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="userName" >
+          <mat-error>Enter email</mat-error>
+        </mat-form-field>
+      </div>
 
-    <div fxLayout.xs="column" fxLayoutAlign.xs="center center">
-      <a href="" class="line1">You can use letters, numbers & periods</a>
-      <a href="" class="line2">Use my current email address instead</a>
-    </div>
-    <div class="pass" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center">
+      <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -35}" 
+      fxLayout.sm="column" [ngStyle.sm]="{'margin-left.px': 80}">
+        <a href="" class="line1">You can use letters, numbers & periods</a>
+        <a href="" class="line2">Use my current email address instead</a>
+      </div>
 
-      <mat-form-field appearance="outline" class="password">
-        <mat-label>Password</mat-label>
-        <input matInput [type]="inputType" placeholder="Password" formControlName="password" id="pass1">
-        <mat-error>Enter password</mat-error>
-      </mat-form-field>
+      <div class="pass" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -100}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
 
-      <mat-form-field appearance="outline">
-        <mat-label>Confirm</mat-label>
-        <input matInput [type]="inputType" placeholder="Confirm" formControlName="confirm" id="pass2">
-        <mat-error>Confirm the password</mat-error>
-      </mat-form-field>
-    </div>
-    <div fxLayoutAlign.xs="center center">
-      <a href="" class="line3">Use 8 more characters with a mix of letters, numbers & symbols.</a>
-    </div>
-    <div class="">
-      <input type="checkbox" (change)="showPassword($event)" id="icon"> Show Password
-    </div>
+        <mat-form-field appearance="outline" class="password">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="inputType" placeholder="Password" formControlName="password" id="pass1">
+          <mat-error>Enter password</mat-error>
+        </mat-form-field>
 
-    <a href="../sign-in/sign-in.component.html" class="line4" routerLink="/login">Sign in instead</a>
-    <input type="submit" name="" value="Next" id="button">
-     
-  </form>
-  <div class="side-image">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm</mat-label>
+          <input matInput [type]="inputType" placeholder="Confirm" formControlName="confirm" id="pass2">
+          <mat-error>Confirm the password</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 12}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
+        <a href="" class="line3">Use 8 more characters with a mix of letters, numbers & symbols.</a>
+      </div>
+      <div class="checkbox" fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -210}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
+        <input type="checkbox" (change)="showPassword($event)" id="icon"> Show Password
+      </div>
+
+      <div  fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -120}" 
+      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
+        <a href="../sign-in/sign-in.component.html" class="line4" routerLink="/login">Sign in instead</a>
+        <input type="submit" name="" value="Next" id="button">
+      </div>
+    </form>
+  </div>
+  <div class="side-image" fxLayout="column" fxLayoutAlign="space-around center" fxHide.xs="true" 
+  fxLayout.sm="column" [ngStyle.lg]="{'margin-top.px': 100}">
     <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" class="side-logo">
     <p id="p1">One account. All of Fundoo</p>
     <p id="p2">working for you.</p>
