@@ -15,7 +15,8 @@
         <h3>Create your Fundoo Account</h3>
       </div>
       <div class="name" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -100}" 
-      fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}"> 
+        fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
+
         <mat-form-field appearance="outline" class="fname">
           <mat-label>First Name</mat-label>
           <input matInput placeholder="First Name" formControlName="firstName">
@@ -29,7 +30,7 @@
         </mat-form-field>
       </div>
 
-      <div fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 73}" 
+      <div fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 73}"
       fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80, 'width.px':750}">
         <mat-form-field appearance="outline" class="user-name">
           <mat-label>Email</mat-label>
@@ -76,8 +77,7 @@
       </div>
     </form>
   </div>
-  <div class="side-image" fxLayout="column" fxLayoutAlign="space-around center" fxHide.xs="true" 
-  fxLayout.sm="column" [ngStyle.lg]="{'margin-top.px': 100}">
+  <div class="side-image" fxLayout="column" fxLayoutAlign="space-around center" fxHide.xs="true" fxHide.sm="true">
     <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" class="side-logo">
     <p id="p1">One account. All of Fundoo</p>
     <p id="p2">working for you.</p>

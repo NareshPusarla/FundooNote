@@ -60,7 +60,7 @@
 .search{
     width: 700px;
     height: 10px;
-    margin-left: 100px;
+    margin-left: 90px;
     margin-bottom: 70px;
     padding-top: 18px;
     padding-bottom: 2px;
@@ -72,8 +72,9 @@
 }
 
 .search_icon{
-    float: left;
-    margin-top: -5px;
+    position: absolute;
+    margin-left: 93px;
+    margin-top: -11px;
     opacity: 0.5;
 }
 .refresh{
