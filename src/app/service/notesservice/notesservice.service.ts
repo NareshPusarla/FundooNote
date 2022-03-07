@@ -23,11 +23,14 @@ export class NotesserviceService {
   }
 
   getNotes(){
+    console.log("token === ",this.token);
+    
     let header={
       headers:new HttpHeaders({
         'Content-Type':'application/json',
         'Authorization':this.token
       })
+
     }
     return this.httpService.getData('notes/getNotesList', true, header)
   }
@@ -41,16 +44,6 @@ export class NotesserviceService {
     }
     return this.httpService.postData('notes/updateNotes', data, true, header)
   }
-
-  // trashNotes(data:any){
-  //   let header={
-  //     headers:new HttpHeaders({
-  //       'Content-Type':'application/json',
-  //       'Authorization':this.token
-  //     })
-  //   }
-  //   return this.httpService.postData('notes/trashNotes', data, true, header)
-  // }
 
   trashNotes(data:any){
     let httpOptions = {
