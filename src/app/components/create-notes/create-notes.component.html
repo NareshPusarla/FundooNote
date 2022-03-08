@@ -1,8 +1,9 @@
 <div class="notes" fxLayout="column" fxLayoutAlign="center center" fxLayout.xs="row">
-    <div *ngIf="!show"  (click)="showHide()">
+    <div *ngIf="!show" (click)="showHide()">
         <label>
-            <input type="text" placeholder="Take a note..." class="titleBar" style="font-size: 16px;">
-            <div class="inner">
+            <input type="text" placeholder="Take a note..." class="titleBar" style="font-size: 16px;"
+            ngClass.xs="titleBar-xs" ngClass.sm="titleBar-sm">
+            <div class="inner" fxHide.xs="true" fxHide.sm="true">
                 <mat-icon class="checkbox" id="inner">check_box</mat-icon>
                 <mat-icon class="edit" id="inner">edit</mat-icon>
                 <mat-icon class="material-icons" id="inner">collections</mat-icon>
@@ -11,13 +12,13 @@
     </div>
     <div *ngIf="show" id="descBar">
         <div>
-            <input matInput type="text" placeholder="Title" class="descBar" [(ngModel)]="title">
+            <input matInput type="text" placeholder="Title" class="descBar" ngClass.xs="descBar-xs" ngClass.sm="descBar-sm" [(ngModel)]="title">
             <mat-icon style="margin-right: 20px;">push_pin</mat-icon>
         </div>
         <div>
-            <input matInput type="text" placeholder="Take a note...." class="descBar" [(ngModel)]="desc">
+            <input matInput type="text" placeholder="Take a note...." class="descBar" ngClass.xs="descBar-xs" ngClass.sm="descBar-sm" [(ngModel)]="desc">
         </div>
-        <div class="icon">
+        <div class="icon" ngClass.sm="icon-sm">
             <app-icons class="symbols"></app-icons>
             <button mat-button (click)="addNotes()">Close</button>
         </div>

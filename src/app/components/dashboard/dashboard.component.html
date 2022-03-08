@@ -13,28 +13,28 @@
                 <p class="fundoo">Fundoo</p>
             </div>
             
-            <div fxFlex.xs="50">
+            <div fxFlex.xs="50" fxHide.xs="true" fxHide.sm="true">
                 <img src="../../../assets/search_black_24dp.svg" alt="" class="search_icon">
             </div>
 
-            <div fxLayout="row" fxLayout.xs="row" fxHide.xs="true" fxHide.sm="true">
-                <mat-form-field appearance="outline" class="search">
-                    <input matInput placeholder="Search" style="font-size: 16px; margin-left: 20px;" (keyup)="updateText($event)">
+            <div fxLayout="row" fxLayout.xs="row">
+                <mat-form-field appearance="outline" class="search" ngClass.xs="search-xs" ngClass.md="search-md" ngClass.sm="search-sm">
+                    <input matInput placeholder="Search..." style="font-size: 16px; margin-left: 20px;" (keyup)="updateText($event)">
                 </mat-form-field>
             </div>
             
-            <div fxLayout="row" fxHide.xs="true" fxHide.sm="true">
+            <div fxLayout="row" fxHide.xs="true" fxHide.sm="true" fxHide.md="true">
                 <img src="../../../assets/refresh_black_24dp.svg" alt="" class="refresh" >
                 <div *ngIf="!isGrid"><img src="../../../assets/view_stream_black_24dp.svg" alt="" class="view_stream" (click)="listView();myFunction()"></div>
                 <div *ngIf="isGrid"><img src="../../../assets/grid_view_black_24dp.svg" alt="" class="view_stream" (click)="gridView();myFunction()"></div>
                 <img src="../../../assets/settings_black_24dp.svg" alt="" class="settings">
             </div>
             
-            <div fxHide.xs="true">
+            <div fxHide.xs="true" fxHide.sm="true">
                 <img src="../../../assets/apps_black_24dp.svg" alt="" class="apps">
             </div>
 
-            <div fxLayout="row" fxLayout.xs="row" fxFlex.xs="50" fxLayoutAlign.xs="center">
+            <div fxLayout="row" fxLayout.xs="row" fxFlex.xs="50" fxLayoutAlign.xs="center" fxLayout.sm="row" fxFlex.sm="50" fxLayoutAlign.sm="center">
                 <button (click)="logout()" class="person">
                     <img src="../../../assets/person_black_24dp.svg" alt="">
                 </button>

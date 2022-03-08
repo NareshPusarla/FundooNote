@@ -6,11 +6,39 @@
     -webkit-box-shadow: 2px 2px 2px rgb(212, 207, 207);
 }
 
+.titleBar-xs{
+    width: 200px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 2px rgb(212, 207, 207);
+}
+
+.titleBar-sm{
+    width: 500px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 2px rgb(212, 207, 207);   
+}
+
 .descBar{
     width: 600px;
     height: 40px;
     border-radius: 10px;
     background-color: white;
+}
+
+.descBar-xs{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.descBar-sm{
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
 }
 
 #descBar{
@@ -60,4 +88,6 @@
     margin-top: 15px;
 }
 
-
+.icon-sm{
+    margin-top: -5px;
+}

@@ -2,3 +2,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.changeStyle{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* flex-wrap: wrap; */
+}

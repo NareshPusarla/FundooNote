@@ -67,6 +67,19 @@
     font-size: 13px;
 }
 
+.search-xs{
+    width: 100px;
+    margin-left: 10px;
+}
+
+.search-md{
+    width: 500px;
+}
+
+.search-sm{
+    width: 150px;
+}
+
 .search input{
     width: 600px;
 }
@@ -77,6 +90,7 @@
     margin-top: -11px;
     opacity: 0.5;
 }
+
 .refresh{
     padding-left: 200px;
 }
