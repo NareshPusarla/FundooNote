@@ -14,6 +14,7 @@ import { TrashNotesComponent } from './components/trash-notes/trash-notes.compon
 import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
 
 const routes: Routes = [
+  {path:'', redirectTo:'dashboard/notes', pathMatch:'full'},  
   {path:'register',component:CreateUserComponent},
   {path:'login',component:SignInComponent},
   {path:'forget',component:ForgotEmailComponent},

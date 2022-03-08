@@ -10,24 +10,27 @@
         <p id="o" style="color: skyblue;">o</p>
         <p id="o" style="color: coral;">o</p>
       </div>
+
       <div fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 200}" 
       fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 130}">
         <h3>Create your Fundoo Account</h3>
       </div>
-      <div class="name" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -100}" 
-        fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
 
-        <mat-form-field appearance="outline" class="fname">
+      <div class="name" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="start center" 
+        fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
+        
+        <mat-form-field appearance="outline" ngClass.xs="name-xs">
           <mat-label>First Name</mat-label>
           <input matInput placeholder="First Name" formControlName="firstName">
           <mat-error>Enter first name</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" ngClass.xs="name-xs">
           <mat-label>Last Name</mat-label>
           <input matInput placeholder="Last Name" formControlName="lastName">
           <mat-error>Enter last name</mat-error>
         </mat-form-field>
+
       </div>
 
       <div fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': 73}"
@@ -48,13 +51,13 @@
       <div class="pass" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -100}" 
       fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 80}">
 
-        <mat-form-field appearance="outline" class="password">
+        <mat-form-field appearance="outline" ngClass.xs="pass-xs">
           <mat-label>Password</mat-label>
           <input matInput [type]="inputType" placeholder="Password" formControlName="password" id="pass1">
           <mat-error>Enter password</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" ngClass.xs="pass-xs">
           <mat-label>Confirm</mat-label>
           <input matInput [type]="inputType" placeholder="Confirm" formControlName="confirm" id="pass2">
           <mat-error>Confirm the password</mat-error>
@@ -77,7 +80,7 @@
       </div>
     </form>
   </div>
-  <div class="side-image" fxLayout="column" fxLayoutAlign="space-around center" fxHide.xs="true" fxHide.sm="true">
+  <div class="side-image" fxLayout="column" fxLayoutAlign="space-around center" fxHide.xs="true" fxHide.sm="true" ngClass.lg="side-image-lg" ngClass.gt-sm="side-image-gt-sm">
     <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" class="side-logo">
     <p id="p1">One account. All of Fundoo</p>
     <p id="p2">working for you.</p>

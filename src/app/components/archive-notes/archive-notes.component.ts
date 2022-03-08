@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from 'src/app/service/dataservice/dataservice.service';
 import { NotesserviceService } from 'src/app/service/notesservice/notesservice.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { NotesserviceService } from 'src/app/service/notesservice/notesservice.s
 export class ArchiveNotesComponent implements OnInit {
 
   archiveList:any;
-  constructor(private notesService:NotesserviceService) { }
+  visible:any;
+  constructor(private notesService:NotesserviceService, private dataService:DataserviceService) { }
 
   ngOnInit(): void {
     this.archiveNotes();
     console.log("hi archive list");
+    this.dataService.funShare.subscribe(x => this.visible = x);
   }
 
   archiveNotes(){

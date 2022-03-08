@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from 'src/app/service/dataservice/dataservice.service';
 import { NotesserviceService } from '../../service/notesservice/notesservice.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { NotesserviceService } from '../../service/notesservice/notesservice.ser
 export class TrashNotesComponent implements OnInit {
 
   trashList:any;
-  constructor(private notesService:NotesserviceService) { }
+  visible:any;
+  constructor(private notesService:NotesserviceService, private dataService:DataserviceService) { }
 
   ngOnInit(): void {
     this.trashNotes();
     console.log("hi trash list");
+    this.dataService.funShare.subscribe(x => this.visible = x);
   }
 
   trashNotes(){

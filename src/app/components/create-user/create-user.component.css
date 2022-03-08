@@ -38,8 +38,14 @@ h3{
   letter-spacing: 1px;
 }
 
-.fname{
-  padding-right: 10px;
+.name{
+  display: flex;
+  gap: 10px;
+}
+
+.name-xs{
+  margin-left: 70px;
+  width: 50%;
 }
 
 .user-name{
@@ -47,11 +53,13 @@ h3{
 }
 
 .pass{
-  display: inline-block;
+  display: flex;
+  gap: 10px;
 }
 
-.password{
-margin-right: 10px;
+.pass-xs{
+  margin-left: 180px;
+  width: 45%;
 }
 
 a{
@@ -94,6 +102,13 @@ a{
   position: relative;
   left: 46.5%;
   transform: translate(50%, 50%);
+}
+
+.side-image-lg{
+  margin-top: 100px;
+}
+.side-image-gt-sm{
+  margin-top: 50px;
 }
 
 .side-image #p1{
