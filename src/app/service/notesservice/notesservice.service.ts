@@ -8,106 +8,51 @@ import { HttpserviceService } from '../httpservice/httpservice.service';
 export class NotesserviceService {
 
   token:any;
+  header:any;
   constructor(private httpService:HttpserviceService) {
     this.token=localStorage.getItem('token')
-  }
-
-  addNotes(data:any){
-    let header={
+    this.header ={
       headers:new HttpHeaders({
         'Content-Type':'application/json',
         'Authorization':this.token
       })
     }
-    return this.httpService.postData('notes/addNotes', data, true, header)
+  }
+
+  addNotes(data:any){
+    return this.httpService.postData('notes/addNotes', data, true, this.header)
   }
 
   getNotes(){
     console.log("token === ",this.token);
-    
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization':this.token
-      })
-
-    }
-    return this.httpService.getData('notes/getNotesList', true, header)
+    return this.httpService.getData('notes/getNotesList', true, this.header)
   }
 
   updateNotes(data:any){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization':this.token
-      })
-    }
-    return this.httpService.postData('notes/updateNotes', data, true, header)
+    return this.httpService.postData('notes/updateNotes', data, true, this.header)
   }
 
   trashNotes(data:any){
-    let httpOptions = {
-      headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      'Authorization': this.token
-      })
-      
-      }
-      console.log(data);
-      return this.httpService.postData('notes/trashNotes', data, true, httpOptions)
+    return this.httpService.postData('notes/trashNotes', data, true, this.header)
   }
 
   deleteNotesForever(data:any){
-    let httpOptions = {
-      headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      'Authorization': this.token
-      })
-      
-      }
-      console.log(data);
-      return this.httpService.postData('notes/deleteForeverNotes', data, true, httpOptions)
+      return this.httpService.postData('notes/deleteForeverNotes', data, true, this.header)
   }
 
   archiveNotes(data:any){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization':this.token
-      })
-    }
-    console.log(data);
-    
-    return this.httpService.postData('notes/archiveNotes', data, true, header)
+    return this.httpService.postData('notes/archiveNotes', data, true, this.header)
   }
 
   getTrashNotes(){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization':this.token
-      })
-    }
-    return this.httpService.getData('notes/getTrashNotesList', true, header)
+    return this.httpService.getData('notes/getTrashNotesList', true, this.header)
   }
 
   getArchiveNotes(){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization':this.token
-      })
-    }
-    return this.httpService.getData('notes/getArchiveNotesList', true, header)
+    return this.httpService.getData('notes/getArchiveNotesList', true, this.header)
   }
 
   colorNotes(data:any){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization':this.token
-      })
-    }
-    return this.httpService.postData('notes/changesColorNotes', data, true, header)
+    return this.httpService.postData('notes/changesColorNotes', data, true, this.header)
   }
 }
