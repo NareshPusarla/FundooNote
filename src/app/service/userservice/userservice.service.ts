@@ -7,41 +7,29 @@ import { HttpserviceService } from '../httpservice/httpservice.service';
 })
 export class UserserviceService {
 
-  constructor(private httpService:HttpserviceService) { }
+  header:any;
 
-  userRegister(data:any){
-    let header={
+  constructor(private httpService:HttpserviceService) { 
+    this.header={
       headers:new HttpHeaders({
         'Content-Type':'application/json'
       })
     }
-    return this.httpService.postData('user/userSignUp', data, false, header)
+  }
+
+  userRegister(data:any){
+    return this.httpService.postData('user/userSignUp', data, false, this.header)
   }
 
   userLogin(data:any){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json'
-      })
-    }
-    return this.httpService.postData('user/login', data, false, header)
+    return this.httpService.postData('user/login', data, false, this.header)
   }
 
   updateEmail(data:any){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json'
-      })
-    }
-    return this.httpService.putData('user/reset', data, false, header)
+    return this.httpService.putData('user/reset', data, false, this.header)
   }
 
   updatePassword(data:any){
-    let header={
-      headers:new HttpHeaders({
-        'Content-Type':'application/json'
-      })
-    }
-    return this.httpService.putData('user/reset-password', data, false, header)
+    return this.httpService.putData('user/reset-password', data, false, this.header)
   }
 }
