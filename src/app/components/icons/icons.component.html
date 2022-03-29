@@ -26,7 +26,7 @@
         </button>
     </div>
 
-    <div class="icons" *ngIf="this.card.isArchived === false; else unarchive">
+    <div class="icons" *ngIf="isArchiveComponent === false; else unarchive">
         <button mat-icon-button (click)="archiveNote()">
             <img src="../../../assets/archive_black_24dp.svg" alt="">
         </button>

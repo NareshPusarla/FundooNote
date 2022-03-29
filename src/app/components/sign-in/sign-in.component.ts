@@ -14,6 +14,7 @@ export class SignInComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
   data:any;
+  inputType:string = "password";
 
   constructor(private formBuilder: FormBuilder, private userService:UserserviceService, private router:Router, private snackBar: MatSnackBar) {}
 
@@ -22,6 +23,10 @@ export class SignInComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+  }
+
+  showPassword(event:any):void{
+    event.target.checked ? this.inputType = "text": this.inputType = "password"; 
   }
 
   onSubmit(){
@@ -34,10 +39,9 @@ export class SignInComponent implements OnInit {
         }
         this.userService.userLogin(this.data).subscribe((response:any)=>{
           console.log(response)
-          localStorage.setItem('token',response.id);
+          localStorage.setItem('token', response.id);
           this.snackBar.open('user login successful','dismiss', {duration:3000});
-          this.router.navigateByUrl("/dashboard/notes")
-          
+          this.router.navigateByUrl("/dashboard/notes")          
         }, error=>{
           console.log(error);
         })
@@ -46,4 +50,5 @@ export class SignInComponent implements OnInit {
       console.log("invalid");
     }
   }
+
 }

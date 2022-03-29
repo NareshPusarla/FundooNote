@@ -24,6 +24,8 @@ export class IconsComponent implements OnInit {
   isTrashComponent:boolean = false;
   isArchiveComponent:boolean = false;
 
+  isArchived:boolean = false;
+
   colors: Array<any> = [
     { code: '#FF6347', name: 'red' },
     { code: '#FF4500', name: 'orange' },
@@ -55,6 +57,8 @@ export class IconsComponent implements OnInit {
     if(comp == ArchiveNotesComponent){
       this.isArchiveComponent = true;
     }
+    
+    console.log("card", this.card.isArchived);
     
   }
 

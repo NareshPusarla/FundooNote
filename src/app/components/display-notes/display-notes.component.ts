@@ -27,7 +27,6 @@ export class DisplayNotesComponent implements OnInit {
     console.log(this.dataList);
     this.dataService.share.subscribe(x => this.filteredString = x);
     this.dataService.funShare.subscribe(x => this.visible = x);
-  
   }
 
   openDialog(dataNotes:any): void {
