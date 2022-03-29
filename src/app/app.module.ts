@@ -15,7 +15,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import { UpdateNotesComponent } from './components/update-notes/update-notes.com
 import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { InterceptorService } from './service/httpInterceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,12 @@ import { FilterPipe } from './pipes/filter.pipe';
     HttpClientModule
   ],
   providers: [
-    AuthserviceService
+    AuthserviceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

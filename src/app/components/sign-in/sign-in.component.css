@@ -50,6 +50,10 @@ form{
     margin-top: -15px;
 }
 
+#icon{
+    margin-left: 22px;
+}
+
 a{
     text-decoration: none;
     color: blue;

@@ -28,10 +28,14 @@
             <div class="details">
                 <mat-form-field appearance="outline" class="box1">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" placeholder="Password" formControlName="password">
-                    <mat-error>Enter first name</mat-error>
+                    <input matInput [type]="inputType" placeholder="Password" formControlName="password">
+                    <mat-error>Enter password</mat-error>
                 </mat-form-field>
             </div>
+        </div>
+        <div class="checkbox" fxLayout="row" fxLayout.xs="row" fxLayoutAlign.xs="center center" [ngStyle.xs]="{'margin-left.px': -210}" 
+            fxLayout.sm="row" [ngStyle.sm]="{'margin-left.px': 0}">
+            <input type="checkbox" (change)="showPassword($event)" id="icon"> Show Password
         </div>
         <!-- <a href="../reset-password/reset-password.component.html" routerLink="/reset">Forgot or Reset Password?</a> -->
 
@@ -43,7 +47,7 @@
         </div>
 
         <div class="footer" fxLayout="row" fxLayout.xs="row" [ngStyle.xs]="{'margin-left.px': 75}">
-            <div class="c1"><a href="../create-notes/create-notes.component.html">Create Account</a></div>
+            <div class="c1"><a href="" routerLink="/register">Create Account</a></div>
             <div class="c2">
                 <button>Next</button>
             </div>
