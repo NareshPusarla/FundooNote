@@ -85,7 +85,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Here we given delete action api to to acheive this operation.
 -![This is image]("../assets/reference/deletenotes.png")
 
-##Archeive Notes Template:
+## Archeive Notes Template:
 - In icons component we gave archeive and unarchive option to store the display template in archive list and to return the note back from archive list.
 - Using archeive api to perform this action.
 -![This is image]("../assets/reference/iconsupdate.png")
@@ -93,7 +93,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  
 ## Project Structure:
 
-##DashBoard Component:
+## DashBoard Component:
 - This is the header and side menu part along with some features like search a note, refresh, settings, logout.
 - Search bar makes to filter the notes what we want to look. To achieve this filltering we used pipes concept. 
 - In side menu we gave options for navigation like
